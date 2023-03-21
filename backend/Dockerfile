@@ -24,7 +24,7 @@ RUN set -ex; \
 COPY --from=REQUIREMENTS_BUILDER /requirements.txt .
 
 RUN set -ex; \
-    pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple
+    pip --default-timeout=100 install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple
 
 COPY . /app
 
