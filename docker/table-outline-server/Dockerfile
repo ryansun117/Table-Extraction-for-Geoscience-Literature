@@ -21,7 +21,7 @@ RUN wget https://bootstrap.pypa.io/pip/3.6/get-pip.py && \
 RUN pip install --user tensorboard cmake onnx   # cmake from apt-get is too old
 RUN pip install --user torch==1.10 torchvision==0.11.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html
 
-RUN pip install --user 'git+https://github.com/facebookresearch/fvcore' --proxy http://10.10.1.3:9991
+RUN pip install --user 'git+https://github.com/facebookresearch/fvcore' # --proxy http://10.10.1.3:9991
 # install detectron2
 RUN git clone -b v0.4.1 https://github.com/facebookresearch/detectron2 detectron2_repo
 # set FORCE_CUDA because during `docker build` cuda is not accessible
