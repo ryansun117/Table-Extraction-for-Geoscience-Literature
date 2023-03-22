@@ -16,7 +16,7 @@ FROM python:3.9-buster
 WORKDIR /app
 
 RUN set -ex; \
-    # sed -i 's#http://deb.debian.org#https://mirrors.aliyun.com#g' /etc/apt/sources.list; \
+    sed -i 's#http://deb.debian.org#https://mirrors.aliyun.com#g' /etc/apt/sources.list; \
     apt update; \
     apt install -y --no-install-recommends curl libgl1-mesa-glx libglib2.0-dev libleptonica-dev; \
     rm -rf /var/lib/apt/lists/*
