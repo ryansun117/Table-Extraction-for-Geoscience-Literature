@@ -1,4 +1,4 @@
-version: "2.16"
+version: "2"
 services:
   table-outline-server:
     container_name: table-outline-server
