@@ -5,6 +5,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     image: table-backend:latest
+    network_mode: "host"
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --log-config log.yaml --log-level debug --reload
     container_name: table-backend
     restart: always
@@ -22,6 +23,7 @@ services:
       context: ./frontend/
       dockerfile: Dockerfile
     image: table-frontend:latest
+    network_mode: "host"
     container_name: table-frontend
     restart: unless-stopped
     ports:
@@ -36,6 +38,7 @@ services:
     command: npm run serve
   grobid-server:
     image: lfoppiano/grobid:0.6.2
+    network_mode: "host"
     container_name: grobid-server
     restart: always
     ports:
@@ -51,6 +54,7 @@ services:
       args:
         USER_ID: 1000
     image: table-outline-server:latest
+    network_mode: "host"
     deploy:
       resources:
         reservations:
